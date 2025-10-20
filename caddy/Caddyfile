@@ -1,0 +1,15 @@
+tech.hidconsult.com {
+  encode gzip zstd
+  tls {
+    # Use Caddy's automatic TLS via Let's Encrypt
+  }
+  @static {
+    path /_next/* /favicon.ico /robots.txt /sitemap.xml /apple-touch-icon.png /assets/*
+  }
+  handle @static {
+    root * /srv
+    file_server
+  }
+  reverse_proxy / http://web:3000
+}
+

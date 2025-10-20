@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Typography */
+:root {
+  --bg: #0a0a0b;
+  --fg: #e7e7e9;
+  --muted: #a0a0a6;
+  --card: #0f1115;
+  --border: #1f2430;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+/* Prose defaults for MDX */
+.prose h1, .prose h2, .prose h3, .prose h4 { color: var(--fg); }
+.prose p { color: var(--fg); }
+.prose a { color: #93c5fd; }
+.prose code { background: #0f172a; padding: 0.1rem 0.25rem; border-radius: 0.25rem; }
+.prose pre { background: #0b1020; border: 1px solid var(--border); }
+
