@@ -1,28 +1,45 @@
----
 services:
   web:
     build: .
     image: hid-tech-site:latest
-    cpus: 0.3
-    env_file:
-      - .env
+    env_file: .env
     environment:
       - NEXT_PUBLIC_SITE_URL=https://tech.hidconsult.com
+    restart: unless-stopped
     networks:
       - webnet
-  caddy:
-    image: caddy:2
+
+  nginx-proxy-manager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx-proxy-manager
+    restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
+      - '80:80'      # HTTP
+      - '443:443'    # HTTPS
+      - '81:81'      # Admin interface
     volumes:
-      - ./caddy:/etc/caddy:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      - web
+      # - /etc/letsencrypt:/etc/letsencrypt:ro  # Mount your certificates
+      - /home/bkam/hid-tech-site/npm/npm_data:/data
+      - /home/bkam/hid-tech-site/npm/npm_letsencrypt:/etc/letsencrypt
     networks:
       - webnet
+
+  # caddy:
+  #   build: ./caddy
+  #   restart: unless-stopped
+  #   ports:
+  #     - 80:80
+  #     - 443:443
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - caddy_data:/data
+  #     - caddy_config:/config
+  #     #- $PWD/Caddyfile:/etc/caddy/Caddyfile
+  #   depends_on:
+  #     - web
+  #   networks:
+  #     - webnet
 
 networks:
   webnet:
@@ -31,4 +48,5 @@ networks:
 volumes:
   caddy_data:
   caddy_config:
-
+  npm_data:
+  npm_letsencrypt:
