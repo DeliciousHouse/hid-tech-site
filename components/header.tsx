@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Header() {
@@ -10,10 +11,12 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link href="/" prefetch className="flex items-center gap-2">
-              <span className="inline-block h-2 w-2 rounded-sm bg-brand" aria-hidden />
-              <span className="text-sm font-semibold tracking-wide text-white">
-                HID Consulting — Technology Division
+            <Link href="/" prefetch className="flex items-center gap-2" aria-label="HID Consulting — Technology Division">
+              <span className="md:hidden inline-flex">
+                <Image src="/brand/logo-mark.svg" alt="HID" width={24} height={24} priority />
+              </span>
+              <span className="hidden md:inline-flex">
+                <Image src="/brand/logo-wordmark.svg" alt="HID Consulting — Technology Division" width={220} height={24} priority />
               </span>
             </Link>
           </div>

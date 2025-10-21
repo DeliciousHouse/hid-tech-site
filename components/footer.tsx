@@ -7,6 +7,7 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           <div>
             <p className="text-sm font-semibold text-white">HID Consulting — Technology Division</p>
+            <p className="mt-2 text-sm text-[var(--muted)]">Napa, CA — <a href="mailto:bkam@hidconsult.com" className="hover:text-white">bkam@hidconsult.com</a></p>
             <p className="mt-2 text-sm text-[var(--muted)]">Secure, connected, and intelligent environments for homes and small businesses.</p>
           </div>
           <nav aria-label="Footer" className="text-sm text-[var(--muted)]">
