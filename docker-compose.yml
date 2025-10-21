@@ -9,20 +9,20 @@ services:
     networks:
       - webnet
 
-  nginx-proxy-manager:
-    image: 'jc21/nginx-proxy-manager:latest'
-    container_name: nginx-proxy-manager
-    restart: unless-stopped
-    ports:
-      - '80:80'      # HTTP
-      - '443:443'    # HTTPS
-      - '81:81'      # Admin interface
-    volumes:
-      # - /etc/letsencrypt:/etc/letsencrypt:ro  # Mount your certificates
-      - /home/bkam/hid-tech-site/npm/npm_data:/data
-      - /home/bkam/hid-tech-site/npm/npm_letsencrypt:/etc/letsencrypt
-    networks:
-      - webnet
+  # nginx-proxy-manager:
+  #   image: 'jc21/nginx-proxy-manager:latest'
+  #   container_name: nginx-proxy-manager
+  #   restart: unless-stopped
+  #   ports:
+  #     - '80:80'      # HTTP
+  #     - '443:443'    # HTTPS
+  #     - '81:81'      # Admin interface
+  #   volumes:
+  #     # - /etc/letsencrypt:/etc/letsencrypt:ro  # Mount your certificates
+  #     - /home/bkam/hid-tech-site/npm/npm_data:/data
+  #     - /home/bkam/hid-tech-site/npm/npm_letsencrypt:/etc/letsencrypt
+  #   networks:
+  #     - webnet
 
   # caddy:
   #   build: ./caddy
