@@ -1,0 +1,14 @@
+{
+  "name": "HID Consulting — Technology Division",
+  "short_name": "HID Tech",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1C64F2",
+  "background_color": "#0b0f17",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.ico", "sizes": "32x32", "type": "image/x-icon" }
+  ]
+}
+
+
